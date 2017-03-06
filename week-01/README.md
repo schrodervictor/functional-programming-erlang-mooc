@@ -1,5 +1,11 @@
 # Week 1
 
+This module is shipped with a `Makefile` to make compilation and running the
+tests easier. One just need to `cd` into this directory and run:
+
+    $ make test
+
+
 ## Assignment: Shapes
 
 I took this assignment as an opportunity to sharpen my skills with records
@@ -18,7 +24,9 @@ shapes defined by its points in the 2D plane. The supported shapes are:
 The public API of the `shapes` module is totally covered by EUnit tests in the
 `shapes_tests` module.
 
-The module is shipped with a `Makefile` to make compilation and running the
-tests easier. One just need to `cd` into this directory and run:
 
-    $ make test
+## Assignment: Summing the bits
+
+Trivial assignment, solved with recursion. Both direct and tail recursive
+solutions are in the `sum_bits` module. The tests covering this functionality
+can be found in the `sum_bits_tests` module.

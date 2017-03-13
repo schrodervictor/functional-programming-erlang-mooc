@@ -14,5 +14,11 @@ test: $(TEST_OBJECTS) $(OBJECTS)
 		-s eunit test index \
 		-s init stop
 
+dialyzer:
+	ERL_LIBS=$(ERL_LIBS) dialyzer *.erl
+
+typer:
+	ERL_LIBS=$(ERL_LIBS) typer *.erl
+
 %.beam: %.erl
 	ERL_LIBS=$(ERL_LIBS) erlc $<

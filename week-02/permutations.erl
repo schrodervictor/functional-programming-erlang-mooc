@@ -13,7 +13,7 @@
 %%
 -spec gen([any()]) -> [[any()]].
 
-gen([]) -> [];
+gen([]) -> [[]];
 gen([A|List]) -> insert_element(A, gen(List)).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,4 +1,5 @@
 -module(permutations_tests).
+-include_lib("proper/include/proper.hrl").
 -include_lib("eunit/include/eunit.hrl").
 
 -define(
@@ -37,3 +38,16 @@ permutation_gen_test_() ->
         ||
         {Input, Expected} <- Cases
     ].
+
+factorial(0) -> 1;
+factorial(N) -> N*factorial(N - 1).
+
+prop_permutation_gen() ->
+    ?FORALL(
+        List,
+        ?SUCHTHAT(List, list(), length(List) < 9),
+        length(permutations:gen(List)) =:= factorial(length(List))
+    ).
+
+proper_test() ->
+    ?assertEqual([], proper:module(?MODULE, [{to_file, user}])).

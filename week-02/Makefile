@@ -2,10 +2,12 @@ TEST_OBJECTS = sort_tests.beam permutations_tests.beam my_lists_tests.beam \
 			   index_tests.beam
 OBJECTS = sort.beam permutations.beam my_lists.beam index.beam
 
+ERL_LIBS = ~/Projects/community/proper
+
 .PHONY: test
 
 test: $(TEST_OBJECTS) $(OBJECTS)
-	erl -noshell \
+	ERL_LIBS=$(ERL_LIBS) erl -noshell \
 		-s eunit test sort \
 		-s eunit test permutations \
 		-s eunit test my_lists \
@@ -13,4 +15,4 @@ test: $(TEST_OBJECTS) $(OBJECTS)
 		-s init stop
 
 %.beam: %.erl
-	erlc $<
+	ERL_LIBS=$(ERL_LIBS) erlc $<
